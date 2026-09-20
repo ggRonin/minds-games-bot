@@ -96,6 +96,13 @@ def load_refs() -> list[str]:
     return refs
 
 
+def _err(e: Exception) -> str:
+    """Текст ошибки без логина:пароля прокси (aiohttp кладёт полный URL прокси в сообщение)
+    и с именем класса — у таймаутов str(e) пустой."""
+    msg = re.sub(r"//[^/@\s]+@", "//***@", str(e))
+    return f"{type(e).__name__}: {msg}"
+
+
 def load_lines(path: Path) -> list[str]:
     if not path.exists():
         return []
@@ -223,7 +230,7 @@ async def register(email: str, ref: str, proxy: str | None) -> bool:
                 flags = await r.json(content_type=None)
                 log(f"GET /api/flags → {r.status} {flags}")
         except Exception as e:
-            log(f"Ошибка загрузки страницы (прокси?): {e}")
+            log(f"Ошибка загрузки страницы (прокси?): {_err(e)}")
             return False
 
         # 3. Turnstile
@@ -249,7 +256,7 @@ async def register(email: str, ref: str, proxy: str | None) -> bool:
                 if r.status != 200 or not j.get("ok"):
                     return False
         except Exception as e:
-            log(f"Ошибка signup: {e}")
+            log(f"Ошибка signup: {_err(e)}")
             return False
 
         cookies = {c.key: c.value for c in jar}
