@@ -1,0 +1,6 @@
+# Email'ы для регистрации — по одному на строку.
+# Строки с # и пустые строки игнорируются.
+# Уже зарегистрированные (есть "ok": true в state.json) бот пропускает сам.
+example.user1@gmail.com
+example.user2@gmail.com
+example.user3@outlook.com

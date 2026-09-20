@@ -1,0 +1,21 @@
+# ── Личные данные: НЕ коммитить ──
+# ключ CapSolver
+config.py
+# результаты регистраций: сессии, куки, ref-коды аккаунтов
+state.json
+# ваши email'ы, прокси (логин:пароль) и реф-коды
+emails.txt
+Proxy.txt
+Reff.txt
+*.tmp
+
+# Сырые дампы сайта/запросов (содержат ваш IP, куки)
+cj.txt
+headers.txt
+index.html
+
+# Python / IDE
+.venv/
+__pycache__/
+*.pyc
+.idea/

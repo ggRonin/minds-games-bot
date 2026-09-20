@@ -1,0 +1,9 @@
+# Скопируй в config.py и впиши свой ключ.
+
+# Ключ CapSolver для решения Cloudflare Turnstile (https://dashboard.capsolver.com/)
+CAPSOLVER_API_KEY = "CAP-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+# Всё остальное берётся из файлов рядом с main.py (см. *.example):
+#   Reff.txt   — реф-коды/ссылки (?ref=XXXXXXXX), по одному на строку
+#   emails.txt — email'ы для регистрации, по одному на строку
+#   Proxy.txt  — прокси user:pass@host:port, по одному на строку (использованный удаляется из файла)
